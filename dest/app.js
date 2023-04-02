@@ -24,22 +24,17 @@ class Vehicle {
     }
     rent() {
         if (this.getRented) {
-            console.log(`Sorry! ${this.make} ${this.model} is already rented`);
+            return `Sorry! ${this.make} ${this.model} is already rented`;
         }
-        else {
-            // user setRented() method to set rented to true
-            this.setRented = true;
-            console.log(`${this.make} ${this.model} is now rented`);
-        }
+        this.setRented = true;
+        return `${this.make} ${this.model} is now rented`;
     }
     return() {
         if (this.getRented) {
             this.setRented = false;
-            console.log(`${this.make} ${this.model} is now returned`);
+            return `${this.make} ${this.model} is now returned`;
         }
-        else {
-            console.log(`${this.make} ${this.model} is not rented yet`);
-        }
+        return `${this.make} ${this.model} is not rented yet`;
     }
 }
 class Car extends Vehicle {
@@ -103,22 +98,22 @@ const truck1 = new Truck('Ford', 'F150', 2018, false, 150, 2, 5000);
 const motorcycle1 = new Motorcycle('Harley-Davidson', 'Sportster', 2018, false, 50, false);
 // test the rent() and return() methods to make sure they work as expected.
 console.log("**************CAR**************");
-car1.rent();
-car1.rent();
-car1.return();
-car1.rent();
+console.log(car1.rent());
+console.log(car1.rent());
+console.log(car1.return());
+console.log(car1.rent());
 console.log("**************TRUCK**************");
-truck1.return();
-truck1.rent();
-truck1.rent();
-truck1.return();
-truck1.rent();
+console.log(truck1.return());
+console.log(truck1.rent());
+console.log(truck1.rent());
+console.log(truck1.return());
+console.log(truck1.rent());
 console.log("**************MOTORCYCLE**************");
-motorcycle1.rent();
-motorcycle1.rent();
-motorcycle1.return();
-motorcycle1.return();
-motorcycle1.rent();
+console.log(motorcycle1.rent());
+console.log(motorcycle1.rent());
+console.log(motorcycle1.return());
+console.log(motorcycle1.return());
+console.log(motorcycle1.rent());
 console.log("**************ALL RENTAL RATE**************");
 console.log(`Rental rate of ${car1.getMake} ${car1.getModel} =`, car1.rentalRate());
 console.log(`Rental rate of ${truck1.getMake} ${truck1.getModel} =`, truck1.rentalRate());
